@@ -6,7 +6,7 @@ import 'package:spa_project/view/debt_management/debt_management_cubit.dart';
 class DebtCollectionController extends BaseController with Repository {
   DebtCollectionController(super.context);
 
-  int _page = 1;
+  final int _page = 1;
   Widget errorWidget = const SizedBox();
 
   @override

@@ -388,7 +388,7 @@ class CreateEditDataBookAddEdit {
       type4: state.isTherapy ? 1 : 0, /// Lịch điều trị
       idCustomer: _internal.nameCustomer.id,
       status: state.statusValue?.id,
-      idStaff: state.staffValue?.id,
+      idStaff: state.staffValue.id,
       timeBook: _internal.dateTimeValue.formatDateTime()
     );
   }
@@ -398,7 +398,7 @@ class CreateEditDataBookAddEdit {
     String vaName = _internal.nameCustomer.id == null ? "Vui lòng nhập tên khách hàng" : "";
     String vaPhone = _internal.cPhone.text.isEmpty ? "Vui lòng nhập số điện thoại" : "";
     String vaBed = state.bedValue?.id == null ? "Vui lòng chọn phòng & giường" : "";
-    String vaStaff = state.staffValue?.id == null ? "Vui lòng chọn nhân viên" : "";
+    String vaStaff = state.staffValue.id == null ? "Vui lòng chọn nhân viên" : "";
     String vaService = state.serviceValue?.id == null ? "Vui lòng chọn dịch vụ" : "";
     _internal.context.read<BookAddEditBloc>().add(SetValidateBookAddEditEvent(
       vaName: vaName,

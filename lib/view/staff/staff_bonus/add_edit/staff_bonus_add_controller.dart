@@ -4,7 +4,6 @@ import 'package:spa_project/model/response/model_list_staff.dart' as staff;
 import 'package:spa_project/view/staff/staff_bonus/add_edit/staff_bonus_add_cubit.dart';
 import 'package:spa_project/view/staff/staff_controller.dart';
 
-import '../../../../model/common/model_payment_method.dart';
 
 class StaffBonusAddController extends BaseController<ModelToBonusOrPunish> with Repository {
   StaffBonusAddController(super.context);
@@ -55,11 +54,11 @@ class StaffBonusAddController extends BaseController<ModelToBonusOrPunish> with 
   }
 
   void onUpdate(StaffBonusAddState state) async {
-    if(state.choseStaff?.id == null) return warningSnackBar(message: "Vui lòng chọn nhân viên thêm thưởng");
+    if(state.choseStaff.id == null) return warningSnackBar(message: "Vui lòng chọn nhân viên thêm thưởng");
     if(cMoney.text.isEmpty) return warningSnackBar(message: "Vui lòng nhập tiền thưởng");
     loadingFullScreen();
     final response = await addStaffBonusAPI(ReqAddBonusPunish(
-      idStaff: state.choseStaff?.id,
+      idStaff: state.choseStaff.id,
       createdAt: state.dateTimeValue.formatDateTime(),
       money: cMoney.text.removeCommaMoney,
       note: cNote.text,
@@ -71,7 +70,7 @@ class StaffBonusAddController extends BaseController<ModelToBonusOrPunish> with 
       if(response.value == Result.isOk) {
         pop(response.value);
       } else {
-        errorSnackBar(message: "Thêm thưởng nhân viên ${state.choseStaff?.name ?? ""} Không thành công");
+        errorSnackBar(message: "Thêm thưởng nhân viên ${state.choseStaff.name ?? ""} Không thành công");
       }
     }
     if(response is Failure<int>) {

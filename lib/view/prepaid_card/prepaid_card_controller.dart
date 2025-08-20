@@ -6,7 +6,7 @@ import 'package:spa_project/view/prepaid_card/prepaid_card_cubit.dart';
 class PrepaidCardController extends BaseController with Repository {
   PrepaidCardController(super.context);
 
-  int _page = 1;
+  final int _page = 1;
   Widget errorWidget = const SizedBox();
 
   @override

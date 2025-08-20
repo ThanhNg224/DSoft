@@ -184,7 +184,7 @@ class _WidgetDrop<T> extends StatefulWidget {
   final void Function(T) onSelect;
   final VoidCallback? onCreate;
   final bool hasSearch;
-  _WidgetDrop({
+  const _WidgetDrop({
     required this.widthItem,
     required this.heightItem,
     required this.offset,

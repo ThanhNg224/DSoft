@@ -83,7 +83,7 @@ class DevLogger extends Interceptor {
     if (request) {
       _printRequestHeader(options);
       // logPrint('Body: ${options.data}');
-      String _formatRequestBody(dynamic data) {
+      String formatRequestBody(dynamic data) {
         if (data is FormData) {
           final buffer = StringBuffer();
           buffer.writeln('FormData:');
@@ -99,7 +99,7 @@ class DevLogger extends Interceptor {
           return data.toString();
         }
       }
-      logPrint('Body: ${_formatRequestBody(options.data)}');
+      logPrint('Body: ${formatRequestBody(options.data)}');
 
     }
     if (requestHeader) {

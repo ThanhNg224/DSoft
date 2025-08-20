@@ -4,7 +4,6 @@ import 'package:spa_project/view/diagram_room_bed/diagram_room_bed_controller.da
 import 'package:spa_project/view/diagram_room_bed/diagram_room_bed_cubit.dart';
 import 'package:spa_project/view/order/order_create_info/order_create_info_controller.dart';
 import 'package:spa_project/view/order/order_create_info/order_create_info_screen.dart';
-import 'package:spa_project/view/order/order_cubit.dart';
 import 'package:spa_project/view/order/order_screen.dart';
 
 class DiagramRoomBedScreen extends BaseView<DiagramRoomBedController> {

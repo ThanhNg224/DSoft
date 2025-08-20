@@ -129,7 +129,7 @@ class BillCollectAddController extends BaseController<collect.Data> with Reposit
       idCustomer: nameCustomer.id,
       note: cNote.text,
       id: args?.id,
-      idStaff: state.choseStaff?.id,
+      idStaff: state.choseStaff.id,
       typeCollectionBill: state.methodPayment.keyValue,
       total: cPrice.text.removeCommaMoney,
       time: state.dateTimeValue.formatDateTime(format: "HH:mm dd/MM/yyyy"),

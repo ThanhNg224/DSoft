@@ -1,11 +1,9 @@
 import 'package:spa_project/base_project/package.dart';
-import 'package:spa_project/model/response/model_bil_statistical.dart';
 import 'package:spa_project/view/statistical/statistical_commission/statistical_agency_screen.dart';
 import 'package:spa_project/view/statistical/statistical_controller.dart';
 import 'package:spa_project/view/statistical/statistical_cubit.dart';
 import 'package:spa_project/view/statistical/statistical_service/statistical_service_screen.dart';
 
-import '../home/component_home.dart';
 
 class StatisticalScreen extends BaseView<StatisticalController> {
   static const String router = "/StatisticalScreen";

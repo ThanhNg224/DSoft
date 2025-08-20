@@ -114,64 +114,64 @@ class StaffWageAddScreen extends BaseView<StaffWageAddController> {
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Text("Thông tin lương cơ bản", style: TextStyles.def.bold.size(18)),
                 ),
-                if(state.choseStaff != null) WidgetBoxColor(
-                  closed: ClosedEnd.start,
-                  closedBot: ClosedEnd.end,
-                  child: Column(
-                    children: [
-                      _itemInfoWage(
-                          title: "Lương cứng:",
-                          data: state.choseStaff?.fixedSalary?.toCurrency(suffix: "đ") ?? "",
-                          icon: Icons.price_change_outlined
-                      ),
-                      _itemInfoWage(
-                          title: "Trợ cấp:",
-                          data: state.choseStaff?.allowance?.toCurrency(suffix: "đ") ?? "",
-                          icon: Icons.price_change_outlined
-                      ),
-                      _itemInfoWage(
-                          title: "Tiền bảo hiểm:",
-                          data: state.choseStaff?.insurance?.toCurrency(suffix: "đ") ?? "",
-                          icon: CupertinoIcons.checkmark_shield
-                      ),
-                      _itemInfoWage(
-                          title: "Số ngày làm thực tế:",
-                          data: "${state.listTimeSheet.length} ngày",
-                          icon: Icons.date_range
-                      ),
-                    ],
-                  ),
-                ) else Text("Vui lòng chọn nhân viên cần tính lương", style: TextStyles.def.semiBold.colors(MyColor.slateGray), textAlign: TextAlign.center),
+                WidgetBoxColor(
+                closed: ClosedEnd.start,
+                closedBot: ClosedEnd.end,
+                child: Column(
+                  children: [
+                    _itemInfoWage(
+                        title: "Lương cứng:",
+                        data: state.choseStaff.fixedSalary?.toCurrency(suffix: "đ") ?? "",
+                        icon: Icons.price_change_outlined
+                    ),
+                    _itemInfoWage(
+                        title: "Trợ cấp:",
+                        data: state.choseStaff.allowance?.toCurrency(suffix: "đ") ?? "",
+                        icon: Icons.price_change_outlined
+                    ),
+                    _itemInfoWage(
+                        title: "Tiền bảo hiểm:",
+                        data: state.choseStaff.insurance?.toCurrency(suffix: "đ") ?? "",
+                        icon: CupertinoIcons.checkmark_shield
+                    ),
+                    _itemInfoWage(
+                        title: "Số ngày làm thực tế:",
+                        data: "${state.listTimeSheet.length} ngày",
+                        icon: Icons.date_range
+                    ),
+                  ],
+                ),
+              ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Text("Thông tin thưởng phạt", style: TextStyles.def.bold.size(18)),
                 ),
-                if(state.choseStaff != null) WidgetBoxColor(
-                  closed: ClosedEnd.start,
-                  closedBot: ClosedEnd.end,
-                  child: Column(
-                    children: [
-                      _itemInfoWageMore(
-                          title: "Tiền thưởng: +",
-                          state: state,
-                          price: state.listBonus
-                              .fold(0, (sum, item) => sum + (item.money ?? 0))
-                      ),
-                      _itemInfoWageMore(
-                          title: "Tiền phạt: -",
-                          state: state,
-                          price: state.listPunish
-                              .fold(0, (sum, item) => sum + (item.money ?? 0))
-                      ),
-                      _itemInfoWageMore(
-                          title: "Hoa hồng: +",
-                          state: state,
-                          price: state.listAgency
-                              .fold(0, (sum, item) => sum + (item.money ?? 0))
-                      ),
-                    ],
-                  ),
-                ) else Text("Vui lòng chọn nhân viên cần tính lương", style: TextStyles.def.semiBold.colors(MyColor.slateGray), textAlign: TextAlign.center),
+                WidgetBoxColor(
+                closed: ClosedEnd.start,
+                closedBot: ClosedEnd.end,
+                child: Column(
+                  children: [
+                    _itemInfoWageMore(
+                        title: "Tiền thưởng: +",
+                        state: state,
+                        price: state.listBonus
+                            .fold(0, (sum, item) => sum + (item.money ?? 0))
+                    ),
+                    _itemInfoWageMore(
+                        title: "Tiền phạt: -",
+                        state: state,
+                        price: state.listPunish
+                            .fold(0, (sum, item) => sum + (item.money ?? 0))
+                    ),
+                    _itemInfoWageMore(
+                        title: "Hoa hồng: +",
+                        state: state,
+                        price: state.listAgency
+                            .fold(0, (sum, item) => sum + (item.money ?? 0))
+                    ),
+                  ],
+                ),
+              ),
               ]
           ),
         );

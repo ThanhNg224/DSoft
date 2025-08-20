@@ -24,10 +24,6 @@ class WarehouseImportController extends BaseController<int> with Repository {
     super.onInitState();
   }
 
-  @override
-  void onDispose() {
-    super.onDispose();
-  }
 
   void onGetMulti() async {
     setScreenState = screenStateLoading;

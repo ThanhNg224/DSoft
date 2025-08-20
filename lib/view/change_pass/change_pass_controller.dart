@@ -66,7 +66,9 @@ class ChangePassController extends BaseController with Repository {
     );
     if(vaPass.isNotEmpty
         || vaPassNew.isNotEmpty
-        || vaPassConfirm.isNotEmpty) return false;
+        || vaPassConfirm.isNotEmpty) {
+      return false;
+    }
     return true;
   }
 

@@ -54,7 +54,7 @@ class StaffWageAddController extends BaseController with Repository {
       initTime: onTriggerEvent<StaffWageAddCubit>().state.dateTimeValue
     );
     onTriggerEvent<StaffWageAddCubit>().changeDateTimeStaffWageAdd(date);
-    if(onTriggerEvent<StaffWageAddCubit>().state.choseStaff != null) onGetMulti();
+    onGetMulti();
     final lastDayOfMonth = DateTime(date.year, date.month + 1, 0);
     onTriggerEvent<StaffWageAddCubit>().changeDayStaffWageAdd(lastDayOfMonth);
   }
@@ -68,13 +68,12 @@ class StaffWageAddController extends BaseController with Repository {
   }
 
   void onSalaryCalculation(StaffWageAddState state) async {
-    if(state.choseStaff == null) return warningSnackBar(message: "Vui lòng chọn nhân viên cần tính lương");
     loadingFullScreen();
     final response = await addPayrollAPI(ReqAddPayroll(
-      idStaff: state.choseStaff?.id,
-      fixedSalary: state.choseStaff?.fixedSalary,
-      allowance: state.choseStaff?.allowance,
-      insurance: state.choseStaff?.insurance,
+      idStaff: state.choseStaff.id,
+      fixedSalary: state.choseStaff.fixedSalary,
+      allowance: state.choseStaff.allowance,
+      insurance: state.choseStaff.insurance,
       month: state.dateTimeValue.month,
       year: state.dateTimeValue.year,
       bonus: state.listBonus.fold(0, (sum, item) => (sum ?? 0) + (item.money ?? 0)),
@@ -89,7 +88,7 @@ class StaffWageAddController extends BaseController with Repository {
       if(response.value == Result.isOk) {
         pop(response.value);
         findController<StaffWageController>().onGetListPayRoll(isLoad: false);
-        successSnackBar(message: "Bạn vừa tính lương cho ${state.choseStaff?.name} thành công");
+        successSnackBar(message: "Bạn vừa tính lương cho ${state.choseStaff.name} thành công");
       } else {
         errorSnackBar(message: "Tính lương thất bại");
       }
@@ -107,7 +106,7 @@ class StaffWageAddController extends BaseController with Repository {
     final response = await listStaffBonusAPI(ReqStaffBonus(
       page: 1,
       type: "bonus",
-      idStaff: state.choseStaff?.id,
+      idStaff: state.choseStaff.id,
       status: "new",
       dateStart: firstDayOfMonth.formatDateTime(format: "dd/MM/yyyy"),
       dateEnd: lastDayOfMonth.formatDateTime(format: "dd/MM/yyyy"),
@@ -134,7 +133,7 @@ class StaffWageAddController extends BaseController with Repository {
     final response = await listStaffBonusAPI(ReqStaffBonus(
       page: 1,
       type: "punish",
-      idStaff: state.choseStaff?.id,
+      idStaff: state.choseStaff.id,
       status: "new",
       dateStart: firstDayOfMonth.formatDateTime(format: "dd/MM/yyyy"),
       dateEnd: lastDayOfMonth.formatDateTime(format: "dd/MM/yyyy"),
@@ -160,7 +159,7 @@ class StaffWageAddController extends BaseController with Repository {
     final lastDayOfMonth = DateTime(selectedDate.year, selectedDate.month + 1, 0);
     final response = await listAgencyAPI(ReqAgency(
       page: 1,
-      idStaff: state.choseStaff?.id,
+      idStaff: state.choseStaff.id,
       status: 0, //Chưa thanh toán
       dateStart: firstDayOfMonth.formatDateTime(format: "dd/MM/yyyy"),
       dateEnd: lastDayOfMonth.formatDateTime(format: "dd/MM/yyyy"),
@@ -186,7 +185,7 @@ class StaffWageAddController extends BaseController with Repository {
     final lastDayOfMonth = DateTime(selectedDate.year, selectedDate.month + 1, 0);
     final response = await listTimesheetAPI(ReqTimesheet(
       page: 1,
-      idStaff: state.choseStaff?.id,
+      idStaff: state.choseStaff.id,
       dateStart: firstDayOfMonth.formatDateTime(format: "dd/MM/yyyy"),
       dateEnd: lastDayOfMonth.formatDateTime(format: "dd/MM/yyyy"),
       status: "new"
@@ -242,11 +241,11 @@ class StaffWageAddController extends BaseController with Repository {
 
   double totalPricePay(StaffWageAddState state) {
 
-    final fixedSalary = state.choseStaff?.fixedSalary ?? 0;
+    final fixedSalary = state.choseStaff.fixedSalary ?? 0;
     final workday = state.dayWage.day;
     final realDay = state.listTimeSheet.length;
-    final allowance = state.choseStaff?.allowance ?? 0;
-    final insurance = state.choseStaff?.insurance ?? 0;
+    final allowance = state.choseStaff.allowance ?? 0;
+    final insurance = state.choseStaff.insurance ?? 0;
 
     final commission = state.listAgency.fold(0, (sum, item) => sum + (item.money ?? 0));
     final bonus = state.listBonus.fold(0, (sum, item) => sum + (item.money ?? 0));

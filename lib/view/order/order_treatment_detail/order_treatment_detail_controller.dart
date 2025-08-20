@@ -171,7 +171,7 @@ class OrderTreatmentDetailController extends BaseController<int> with Repository
     final response = await addUserServiceAPI(ReqUseCombo(
         id: args,
         time: DateTime.now().formatDateTime(format: "HH:mm dd/MM/yyyy"),
-        idStaff: state.choseStaff?.id,
+        idStaff: state.choseStaff.id,
         idBed: state.choseBed?.id,
         idService: idService
     ));

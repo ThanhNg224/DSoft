@@ -95,7 +95,7 @@ class DebtAddCollectionController extends BaseController<DebtManagementSend> wit
   bool _isValidate(DebtAddCollectionState state) {
     String vaName = cName.text.isEmpty ? "Vui lòng nhập tên nhân viên" : "";
     String vaPrice = cPrice.text.isEmpty ? "Vui lòng nhập số tiền nợ" : "";
-    String vaStaff = state.choseStaff == null ? "Vui lòng chọn nhân viên" : "";
+    String vaStaff = "";
     onTriggerEvent<DebtAddCollectionCubit>().setVaNameDebtAddCollection(
       vaName: vaName,
       vaPrice: vaPrice,
@@ -108,7 +108,7 @@ class DebtAddCollectionController extends BaseController<DebtManagementSend> wit
     return ReqAddDebtCollection(
       note: cNote.text,
       fullName: cName.text,
-      idCustomer: state.choseStaff?.id,
+      idCustomer: state.choseStaff.id,
       time: state.dateTimeValue.formatDateTime(),
       total: cPrice.text.removeCommaMoney,
       id: args?.data?.id
