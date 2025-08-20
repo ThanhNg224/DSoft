@@ -1,2 +1,1 @@
-# DSoft
-Spa
+# Cross platform spa application
