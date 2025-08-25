@@ -111,3 +111,17 @@ Strong separation of concerns (UI, business logic, data layer)
 Highly reusable UI components and consistent theming
 
 Full suite of spa management features (bookings → warehouse → reports)
+
+![Screenshot_2025-08-25-12-00-42-348_info dsoft app](https://github.com/user-attachments/assets/7a1e5913-7a52-4cef-bc0e-03ff805e0e3e)
+
+![Screenshot_2025-08-25-12-01-18-898_info dsoft app](https://github.com/user-attachments/assets/41cdfbe3-9825-4f53-b647-f889686d1eaf)
+
+![Screenshot_2025-08-25-12-01-18-898_info dsoft app](https://github.com/user-attachments/assets/c114e069-c5b4-4815-ab86-d89093bf6a0e)
+![Screenshot_2025-08-25-12-01-51-476_info dsoft app](https://github.com/user-attachments/assets/ff959379-73ab-4646-b779-5d41c8acb2ff)
+![Screenshot_2025-08-25-12-01-51-476_info dsoft app](https://github.com/user-attachments/assets/b4b56b0d-638a-48a8-80fd-dbc633b87469)
+![Screenshot_2025-08-25-12-01-54-586_info dsoft app](https://github.com/user-attachments/assets/1db97ccb-dada-4b46-9f64-9adb4505acbf)
+![Screenshot_2025-08-25-12-01-59-145_info dsoft app](https://github.com/user-attachments/assets/e12e6584-5f60-4e54-9897-e5643451bbb1)
+
+![Screenshot_2025-08-25-12-02-04-704_info dsoft app](https://github.com/user-attachments/assets/23abcdcc-96b6-4676-a8df-96f03dfc12e4)
+![Screenshot_2025-08-25-12-02-11-847_info dsoft app](https://github.com/user-attachments/assets/b9861adb-422b-4940-92c0-823fb6fcf32b)
+
